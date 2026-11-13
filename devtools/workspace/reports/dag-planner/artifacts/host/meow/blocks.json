@@ -1,0 +1,11 @@
+{"goal": "เว็บร้านอาหารแมว Meow Shop: หน้าแรก รายการสินค้า ตะกร้า และภาพแบนเนอร์", "name": "meow",
+ "blocks": [
+  {"id": "B01", "title": "โครงโปรเจกต์", "size": "S", "depends_on": [], "skill": "cyolo", "difficulty": 2, "output": "README.md", "done": "README.md lists folders and how to open index.html"},
+  {"id": "B02", "title": "เลือกโครงข้อมูลสินค้า", "size": "S", "depends_on": ["B01"], "skill": "debate", "difficulty": 3, "output": "data-decision.md", "done": "decision names one JSON shape with reasons"},
+  {"id": "B03", "title": "ข้อมูลสินค้า", "size": "M", "depends_on": ["B02"], "skill": "cyolo", "difficulty": 2, "output": "products.json", "done": "products.json parses and has 8 items"},
+  {"id": "B04", "title": "หน้าเว็บหลัก", "size": "L", "depends_on": ["B01"], "skill": "yolo", "difficulty": 3, "output": "index.html", "done": "index.html loads products.json and renders cards"},
+  {"id": "B05", "title": "ภาพแบนเนอร์", "size": "S", "depends_on": ["B01"], "skill": "image", "difficulty": 1, "output": "banner.png", "done": "banner.png is a valid PNG"},
+  {"id": "B06", "title": "สโลแกนร้าน", "size": "S", "depends_on": ["B01"], "skill": "best_of", "difficulty": 2, "output": "slogan.md", "done": "one Thai slogan under 12 words"},
+  {"id": "B07", "title": "ตะกร้าสินค้า", "size": "M", "depends_on": ["B03", "B04"], "skill": "review", "difficulty": 3, "output": "cart.js", "done": "cart.js adds/removes items and totals price correctly"},
+  {"id": "B08", "title": "รวมระบบและทดสอบ", "size": "M", "depends_on": ["B05", "B06", "B07"], "skill": "yolo", "difficulty": 3, "output": "TEST.md", "done": "TEST.md shows every page opened without console errors", "exclusive": true}
+ ]}

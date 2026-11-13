@@ -1,0 +1,38 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "dag-planner/plan@1",
+ "title": "dag-planner plan.json (canonical plan data: DAG, Gantt and graph.json are derived from it)",
+ "type": "object",
+ "required": ["schema", "name", "status", "clock", "accounts", "accounts_used", "blocks_sha256", "rank",
+              "critical_path", "effective_deps", "blocks", "metrics", "limits"],
+ "properties": {
+  "schema": {"const": "dag-planner/plan@1"},
+  "name": {"type": "string"},
+  "status": {"enum": ["OK", "BLOCKED"]},
+  "clock": {"type": "object", "required": ["now", "fixed", "unit"]},
+  "assumed_quota": {"type": "boolean"},
+  "limits": {"type": "object", "required": ["max_agents", "per_account"]},
+  "accounts": {"type": "array", "items": {"type": "object", "required": ["account", "eligible", "reason"]}},
+  "accounts_used": {"type": "array", "items": {"type": "string", "pattern": "^(clp|cop)[1-9][0-9]?$"}},
+  "blocks_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+  "rank": {"type": "object", "additionalProperties": {"type": "number"}},
+  "critical_path": {"type": "array", "items": {"type": "string"}},
+  "effective_deps": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}},
+  "blocks": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object",
+    "required": ["id", "status", "roles"],
+    "properties": {
+     "status": {"enum": ["planned", "unassigned"]},
+     "start": {"type": "number"}, "end": {"type": "number"}, "duration": {"type": "number"},
+     "why": {"type": "string"},
+     "roles": {"type": "array", "items": {"type": "object",
+       "required": ["role", "account", "kind", "score", "need", "why"],
+       "properties": {"role": {"enum": ["worker", "reviewer", "answer", "judge"]}, "kind": {"enum": ["clp", "cop"]}}}}
+    }
+   }
+  },
+  "metrics": {"type": "object", "required": ["makespan_min", "critical_path_min", "peak_agents", "utilization"]}
+ }
+}

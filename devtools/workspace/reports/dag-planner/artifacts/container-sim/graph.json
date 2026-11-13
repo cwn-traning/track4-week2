@@ -1,0 +1,133 @@
+{
+ "goal": "เว็บร้านอาหารแมว Meow Shop: หน้าแรก รายการสินค้า ตะกร้า และภาพแบนเนอร์",
+ "nodes": [
+  {
+   "id": "B01",
+   "difficulty": 2,
+   "depends_on": [],
+   "cwd": "/tmp/dagplan-hc2/meow/app",
+   "write": true,
+   "prompt": "Project goal: เว็บร้านอาหารแมว Meow Shop: หน้าแรก รายการสินค้า ตะกร้า และภาพแบนเนอร์\nBlock B01: โครงโปรเจกต์\nDone when: README.md lists folders and how to open index.html\nRead these results from earlier blocks first:\n- (none)\nWrite your result to: /tmp/dagplan-hc2/meow/app/README.md\nDo not modify files written by other blocks; write only your own output file.\nReply in one or two lines: which file(s) you wrote.",
+   "account": "cop",
+   "kind": "code"
+  },
+  {
+   "id": "B02",
+   "difficulty": 3,
+   "depends_on": [
+    "B01"
+   ],
+   "cwd": "/tmp/dagplan-hc2/meow/app",
+   "prompt": "Project goal: เว็บร้านอาหารแมว Meow Shop: หน้าแรก รายการสินค้า ตะกร้า และภาพแบนเนอร์\nBlock B02: เลือกโครงข้อมูลสินค้า\nDone when: decision names one JSON shape with reasons\nRead these results from earlier blocks first:\n- /tmp/dagplan-hc2/meow/app/README.md  (from B01)\nDo not create files. Reply with the full content intended for data-decision.md (it is stored by agent-team and handed to later blocks).",
+   "type": "debate",
+   "accounts": [
+    "clp2",
+    "cop1"
+   ],
+   "judge": "clp1"
+  },
+  {
+   "id": "B04",
+   "difficulty": 3,
+   "depends_on": [
+    "B01"
+   ],
+   "cwd": "/tmp/dagplan-hc2/meow/app",
+   "write": true,
+   "prompt": "Project goal: เว็บร้านอาหารแมว Meow Shop: หน้าแรก รายการสินค้า ตะกร้า และภาพแบนเนอร์\nBlock B04: หน้าเว็บหลัก\nDone when: index.html loads products.json and renders cards\nRead these results from earlier blocks first:\n- /tmp/dagplan-hc2/meow/app/README.md  (from B01)\nWrite your result to: /tmp/dagplan-hc2/meow/app/index.html\nDo not modify files written by other blocks; write only your own output file.\nReply in one or two lines: which file(s) you wrote.",
+   "account": "clp",
+   "kind": "code"
+  },
+  {
+   "id": "B05",
+   "difficulty": 1,
+   "depends_on": [
+    "B01"
+   ],
+   "cwd": "/tmp/dagplan-hc2/meow/app",
+   "prompt": "Project goal: เว็บร้านอาหารแมว Meow Shop: หน้าแรก รายการสินค้า ตะกร้า และภาพแบนเนอร์\nBlock B05: ภาพแบนเนอร์\nDone when: banner.png is a valid PNG\nRead these results from earlier blocks first:\n- /tmp/dagplan-hc2/meow/app/README.md  (from B01)\nWrite your result to: /tmp/dagplan-hc2/meow/app/banner.png\nDo not modify files written by other blocks; write only your own output file.\nReply in one or two lines: which file(s) you wrote.",
+   "account": "cop",
+   "kind": "image",
+   "image_out": "/tmp/dagplan-hc2/meow/app/banner.png"
+  },
+  {
+   "id": "B06",
+   "difficulty": 2,
+   "depends_on": [
+    "B01"
+   ],
+   "cwd": "/tmp/dagplan-hc2/meow/app",
+   "prompt": "Project goal: เว็บร้านอาหารแมว Meow Shop: หน้าแรก รายการสินค้า ตะกร้า และภาพแบนเนอร์\nBlock B06: สโลแกนร้าน\nDone when: one Thai slogan under 12 words\nRead these results from earlier blocks first:\n- /tmp/dagplan-hc2/meow/app/README.md  (from B01)\nDo not create files. Reply with the full content intended for slogan.md (it is stored by agent-team and handed to later blocks).",
+   "type": "best_of",
+   "accounts": [
+    "clp2",
+    "clp1"
+   ],
+   "judge": "cop1",
+   "criteria": "one Thai slogan under 12 words"
+  },
+  {
+   "id": "B03",
+   "difficulty": 2,
+   "depends_on": [
+    "B02"
+   ],
+   "cwd": "/tmp/dagplan-hc2/meow/app",
+   "write": true,
+   "prompt": "Project goal: เว็บร้านอาหารแมว Meow Shop: หน้าแรก รายการสินค้า ตะกร้า และภาพแบนเนอร์\nBlock B03: ข้อมูลสินค้า\nDone when: products.json parses and has 8 items\nRead these results from earlier blocks first:\n- {{file:B02}}  (agent-team result of B02; it decides what goes into data-decision.md)\nWrite your result to: /tmp/dagplan-hc2/meow/app/products.json\nDo not modify files written by other blocks; write only your own output file.\nReply in one or two lines: which file(s) you wrote.",
+   "account": "cop",
+   "kind": "code"
+  },
+  {
+   "id": "B07",
+   "difficulty": 3,
+   "depends_on": [
+    "B03",
+    "B04"
+   ],
+   "cwd": "/tmp/dagplan-hc2/meow/app",
+   "write": true,
+   "prompt": "Project goal: เว็บร้านอาหารแมว Meow Shop: หน้าแรก รายการสินค้า ตะกร้า และภาพแบนเนอร์\nBlock B07: ตะกร้าสินค้า\nDone when: cart.js adds/removes items and totals price correctly\nRead these results from earlier blocks first:\n- /tmp/dagplan-hc2/meow/app/products.json  (from B03)\n- /tmp/dagplan-hc2/meow/app/index.html  (from B04)\nWrite your result to: /tmp/dagplan-hc2/meow/app/cart.js\nDo not modify files written by other blocks; write only your own output file.\nReply in one or two lines: which file(s) you wrote.",
+   "type": "review",
+   "account": "clp",
+   "kind": "code",
+   "max_rounds": 3,
+   "reviewer": {
+    "account": "cop",
+    "prompt": "cart.js adds/removes items and totals price correctly"
+   }
+  },
+  {
+   "id": "B08",
+   "difficulty": 3,
+   "depends_on": [
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07"
+   ],
+   "cwd": "/tmp/dagplan-hc2/meow/app",
+   "write": true,
+   "prompt": "Project goal: เว็บร้านอาหารแมว Meow Shop: หน้าแรก รายการสินค้า ตะกร้า และภาพแบนเนอร์\nBlock B08: รวมระบบและทดสอบ\nDone when: TEST.md shows every page opened without console errors\nRead these results from earlier blocks first:\n- /tmp/dagplan-hc2/meow/app/banner.png  (from B05)\n- {{file:B06}}  (agent-team result of B06; it decides what goes into slogan.md)\n- /tmp/dagplan-hc2/meow/app/cart.js  (from B07)\nWrite your result to: /tmp/dagplan-hc2/meow/app/TEST.md\nYou are the integration block: you may edit any file in the app folder.\nReply in one or two lines: which file(s) you wrote.",
+   "account": "clp",
+   "kind": "code"
+  }
+ ],
+ "dagplan": {
+  "schema": "dag-planner/graph-export@1",
+  "plan": "meow",
+  "plan_sha256": "2a51467755c2f995c74421229d77e548b0145d562ace3b6193945496fb228c8c",
+  "workers": [
+   "clp1",
+   "clp2",
+   "cop1"
+  ],
+  "limits": {
+   "max_agents": 8,
+   "per_account": 3
+  }
+ }
+}
