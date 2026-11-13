@@ -1,0 +1,29 @@
+{
+ "mode": "simulation",
+ "started": "2026-11-13T16:23:56+07:00",
+ "agent_team_home": "/tmp/dagplan-hc2/meow/sim/20261113-162356-324800/agent-team-home",
+ "workers": [
+  "clp1",
+  "clp2",
+  "cop1"
+ ],
+ "log": "/tmp/dagplan-hc2/meow/run-20261113-162356-324800.log",
+ "argv": [
+  "/root/ai-accounts/.Claude/shared/skills/agent-team/scripts/team.py",
+  "run",
+  "/tmp/dagplan-hc2/meow/graph.json",
+  "--workers",
+  "clp1,clp2,cop1",
+  "--json",
+  "--max-parallel",
+  "8",
+  "--per-account",
+  "3",
+  "--no-quota"
+ ],
+ "rc": 1,
+ "run_id": "20261113-162356-423",
+ "finished": true,
+ "sandbox": "/tmp/dagplan-hc2/meow/sim/20261113-162356-324800",
+ "real_executor_invocations": 0
+}

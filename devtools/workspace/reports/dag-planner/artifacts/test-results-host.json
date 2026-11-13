@@ -1,0 +1,460 @@
+{
+ "python": "3.13.2",
+ "platform": "win32",
+ "wall_s": 22.3,
+ "summary": {
+  "PASS": 48,
+  "FAIL": 0,
+  "SKIP": 8
+ },
+ "tests": [
+  {
+   "id": "C01",
+   "requirement": "SPEC-T6",
+   "description": "graph.json passes agent-team graph.expand()",
+   "status": "PASS",
+   "duration_s": 2.449,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "C02",
+   "requirement": "REQ-EXP-2",
+   "description": "BLOCKED plan cannot be exported",
+   "status": "PASS",
+   "duration_s": 6.37,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "C03",
+   "requirement": "REQ-EXP-3",
+   "description": "a graph agent-team refuses (relative cwd) raises a clean error",
+   "status": "PASS",
+   "duration_s": 0.015,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "C04",
+   "requirement": "REQ-EXP-4",
+   "description": "export refuses when blocks.json differs from the planned version",
+   "status": "PASS",
+   "duration_s": 3.568,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "C05",
+   "requirement": "REQ-EXP-1",
+   "description": "plan.json / blocks.json match the shipped JSON Schemas",
+   "status": "SKIP",
+   "duration_s": 0.001,
+   "evidence": "jsonschema not installed (stdlib-only host)"
+  },
+  {
+   "id": "C06",
+   "requirement": "REQ-CON-1",
+   "description": "DAG, Gantt and graph.json all derive from plan.json",
+   "status": "PASS",
+   "duration_s": 2.276,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "C07",
+   "requirement": "REQ-SEC-4",
+   "description": "'{{x}}' in block text cannot become an agent-team placeholder",
+   "status": "PASS",
+   "duration_s": 2.131,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "C08",
+   "requirement": "SPEC-T2",
+   "description": "`dag` exits 1 and names cycle / duplicate / missing / unknown skill",
+   "status": "PASS",
+   "duration_s": 0.418,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "C09",
+   "requirement": "SPEC-T3",
+   "description": "dag.svg shows all six skill badges, critical edges and a legend",
+   "status": "PASS",
+   "duration_s": 0.89,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "C10",
+   "requirement": "SPEC-T7",
+   "description": "run→report without tokens: statuses == state.json, tokens == ledger, files written",
+   "status": "SKIP",
+   "duration_s": 0.0,
+   "evidence": "simulated agent-team run needs base skills on a POSIX host"
+  },
+  {
+   "id": "C11",
+   "requirement": "REQ-CON-2",
+   "description": "plan.json untouched by run/report; report labels simulated time",
+   "status": "SKIP",
+   "duration_s": 0.0,
+   "evidence": "simulated agent-team run needs base skills on a POSIX host"
+  },
+  {
+   "id": "C12",
+   "requirement": "REQ-EXP-5",
+   "description": "debate/best_of nodes do not promise an app/ file; dependants read {{file:id}}",
+   "status": "PASS",
+   "duration_s": 1.805,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "C13",
+   "requirement": "REQ-EXP-4",
+   "description": "run refuses a graph.json exported before a re-plan",
+   "status": "PASS",
+   "duration_s": 2.319,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "C14",
+   "requirement": "REQ-REP-1",
+   "description": "report mapping: sub-nodes (B__1, B.r1.work) fold into their block; tokens summed from ledger",
+   "status": "PASS",
+   "duration_s": 0.006,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "D01",
+   "requirement": "REQ-DAG-1",
+   "description": "empty graph is rejected",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "D02",
+   "requirement": "REQ-DAG-1",
+   "description": "single block validates, rank = its size",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "D03",
+   "requirement": "REQ-DAG-2",
+   "description": "chain A->B->C: rank accumulates, critical path is the chain",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "D04",
+   "requirement": "REQ-DAG-2",
+   "description": "independent blocks all at level 0",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "D05",
+   "requirement": "REQ-DAG-2",
+   "description": "diamond A->(B,C)->D: critical path through the larger branch",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "D06",
+   "requirement": "REQ-DAG-2",
+   "description": "block with 3 deps waits on all of them",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "D07",
+   "requirement": "REQ-DAG-3",
+   "description": "cycle A->B->C->A detected",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "D08",
+   "requirement": "REQ-DAG-3",
+   "description": "self dependency detected",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "D09",
+   "requirement": "REQ-DAG-3",
+   "description": "duplicate id detected",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "D10",
+   "requirement": "REQ-DAG-3",
+   "description": "reference to a non-existent id detected",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "D11",
+   "requirement": "REQ-DAG-3",
+   "description": "unsupported skill rejected",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "D12",
+   "requirement": "REQ-DAG-4",
+   "description": "sample8: rank == brute-force longest path; critical path == heaviest root-to-sink path",
+   "status": "PASS",
+   "duration_s": 0.001,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "D13",
+   "requirement": "REQ-DAG-5",
+   "description": "exclusivity edges keep the graph acyclic for every exclusive placement",
+   "status": "PASS",
+   "duration_s": 0.001,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "D14",
+   "requirement": "REQ-SEC-3",
+   "description": "output escaping app/ rejected",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S01",
+   "requirement": "REQ-SCH-1",
+   "description": "one account: every Claude block planned on it, validator clean",
+   "status": "PASS",
+   "duration_s": 0.001,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S02",
+   "requirement": "REQ-ATQ-1",
+   "description": "several eligible accounts: winner = top AT-QUEST score, runner-ups listed",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S03",
+   "requirement": "REQ-SCH-6",
+   "description": "Codex-only block with only Claude accounts -> unassigned (BLOCKED)",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S04",
+   "requirement": "REQ-SCH-2",
+   "description": "per-account 1 slot: two parallel blocks are serialised on the same account",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S05",
+   "requirement": "REQ-SCH-3",
+   "description": "--max-agents 1 never overlaps; a 3-account debate under --max-agents 2 is unassigned",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S06",
+   "requirement": "REQ-ATQ-4",
+   "description": "contention for one slot: the block with the higher critical rank starts first",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S07",
+   "requirement": "REQ-ATQ-5",
+   "description": "U factor: account whose quota resets sooner is used first (use-it-or-lose-it)",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S08",
+   "requirement": "REQ-ATQ-3",
+   "description": "account at 99 % session use gets no slot -> block BLOCKED",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S09",
+   "requirement": "REQ-ATQ-6",
+   "description": "session usage UNKNOWN -> not eligible (never treated as available)",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S10",
+   "requirement": "REQ-ATQ-5",
+   "description": "plan already expired -> hard-excluded before scoring",
+   "status": "PASS",
+   "duration_s": 0.001,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S11",
+   "requirement": "REQ-ATQ-5",
+   "description": "no reset/expiry known -> reference 7-day default, flagged expiry_unknown",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S12",
+   "requirement": "REQ-ATQ-6",
+   "description": "readiness unknown/expired/not_logged_in -> excluded",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S13",
+   "requirement": "REQ-SCH-4",
+   "description": "two unordered blocks writing the same output never overlap",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S14",
+   "requirement": "REQ-SCH-6",
+   "description": "L block on a 6 % account -> unassigned and its dependants too",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S15",
+   "requirement": "REQ-SCH-5",
+   "description": "same input + clock -> byte-identical schedule (10 runs)",
+   "status": "PASS",
+   "duration_s": 0.025,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S16",
+   "requirement": "SPEC-T5",
+   "description": "what-if: account with little quota gets no L block",
+   "status": "PASS",
+   "duration_s": 0.003,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S17",
+   "requirement": "SPEC-T4",
+   "description": "skills on the right CLI; review uses the other CLI; multi-account blocks hold >=2 accounts",
+   "status": "PASS",
+   "duration_s": 0.002,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S18",
+   "requirement": "REQ-VAL-1",
+   "description": "independent validator flags slot overrun and dependency break",
+   "status": "PASS",
+   "duration_s": 0.0,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S19",
+   "requirement": "REQ-SCH-7",
+   "description": "exclusive block overlaps nothing; validator flags an injected overlap",
+   "status": "PASS",
+   "duration_s": 0.001,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "S20",
+   "requirement": "REQ-ATQ-3",
+   "description": "cumulative reserved quota never exceeds starting headroom (validator check)",
+   "status": "PASS",
+   "duration_s": 0.003,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "X01",
+   "requirement": "REQ-SEC-1",
+   "description": "run used private home, MA_SIMULATE_LIMIT on every worker, shimmed PATH",
+   "status": "SKIP",
+   "duration_s": 0.0,
+   "evidence": "simulated agent-team run needs base skills on a POSIX host"
+  },
+  {
+   "id": "X02",
+   "requirement": "REQ-SEC-2",
+   "description": "shim counter == 0, and the shim really counts (positive control)",
+   "status": "SKIP",
+   "duration_s": 0.0,
+   "evidence": "simulated agent-team run needs base skills on a POSIX host"
+  },
+  {
+   "id": "X03",
+   "requirement": "REQ-SEC-1",
+   "description": "--real refused when DAGPLAN_SIMULATE_ONLY=1",
+   "status": "SKIP",
+   "duration_s": 0.0,
+   "evidence": "simulated agent-team run needs base skills on a POSIX host"
+  },
+  {
+   "id": "X04",
+   "requirement": "REQ-SEC-5",
+   "description": "the caller's AGENT_TEAM_HOME (canary) is never created or written by a simulated run",
+   "status": "SKIP",
+   "duration_s": 0.0,
+   "evidence": "simulated agent-team run needs base skills on a POSIX host"
+  },
+  {
+   "id": "X05",
+   "requirement": "REQ-SEC-6",
+   "description": "base skill files byte-identical before/after the test run",
+   "status": "SKIP",
+   "duration_s": 0.0,
+   "evidence": "simulated agent-team run needs base skills on a POSIX host"
+  },
+  {
+   "id": "X06",
+   "requirement": "REQ-SEC-3",
+   "description": "no eval/exec/shell=True/os.system in scripts",
+   "status": "PASS",
+   "duration_s": 0.007,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "X07",
+   "requirement": "REQ-SEC-7",
+   "description": "scripts never reference credential files or login/auth commands",
+   "status": "PASS",
+   "duration_s": 0.005,
+   "evidence": "assertions held"
+  },
+  {
+   "id": "X08",
+   "requirement": "REQ-SKL-1",
+   "description": "SKILL.md has name + bilingual description with trigger phrases",
+   "status": "PASS",
+   "duration_s": 0.001,
+   "evidence": "assertions held"
+  }
+ ]
+}
