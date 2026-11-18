@@ -1,0 +1,35 @@
+# รันทั้งระบบด้วยคำสั่งเดียว:   docker compose up --build
+#   เปิดบั๊ก:        BUG_MODE=B03,B07 docker compose up --build
+#   ปิด test hook:   TEST_MODE= docker compose up --build   (/api/test/* ตอบ 404)
+# ค่าเริ่มต้น TEST_MODE=1 เพื่อให้รัน TEST-PLAN ได้ทันที · BUG_MODE ว่าง = เว็บถูกต้อง 100%
+# DB_PATH (ใน container) = /data/egov.db อยู่บน named volume egov-data
+services:
+  web:
+    build: .
+    image: egov-eservice:latest
+    container_name: egov-eservice
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      PORT: "3000"
+      TEST_MODE: "${TEST_MODE-1}"
+      BUG_MODE: "${BUG_MODE-}"
+      DB_PATH: /data/egov.db
+      TZ: Asia/Bangkok
+    volumes:
+      - egov-data:/data
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 10s
+
+volumes:
+  egov-data:

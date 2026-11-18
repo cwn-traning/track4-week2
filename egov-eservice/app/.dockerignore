@@ -1,0 +1,6 @@
+node_modules
+data
+egov-brief
+tests
+.git
+*.log

@@ -1,0 +1,4 @@
+{"accounts":[
+{"account":"clp1","state":"ready","session_used":28,"week_used":82,"session_reset":"2026-11-13T23:30:00+07:00","week_reset":"2026-11-16T15:00:00+07:00"},
+{"account":"clp2","state":"ready","session_used":5,"week_used":53,"session_reset":4,"week_reset":"2026-11-16T15:00:00+07:00"},
+{"account":"cop1","state":"ready","session_used":0,"week_used":0,"session_reset":5,"week_reset":168}]}

@@ -1,0 +1,6 @@
+# dependency / ผลรันชั่วคราว (สร้างใหม่ได้)
+app/node_modules/
+app/test-results/
+app/playwright-report/
+# วิดีโอดิบ (.webm ~58 MB) — หลักฐานที่ส่งคือ test-report/gif/ ที่แปลงแล้ว
+test-report/.artifacts/

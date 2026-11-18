@@ -1,0 +1,22 @@
+{
+  "name": "egov-eservice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "e-Service กลางของเทศบาลนครตัวอย่าง (ระบบสมมติ)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test:e2e": "playwright test --reporter=list"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.48.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.5.0",
+    "express": "^4.21.1"
+  }
+}
